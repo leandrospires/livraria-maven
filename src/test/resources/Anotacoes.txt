@@ -1,0 +1,13 @@
+http://localhost:8080/livraria/livro.xhtml
+http://localhost:8080/livraria-maven/index.xhtml
+
+teste.login.br.2020@gmail.com
+00lealea
+
+cd /E/LeandroPires/Alura/JavaEE/livraria-orig
+
+git init
+git add .
+git commit -m "comentario"
+git remote add origin https://github.com/leandrospires/livraria-orig.git
+git push -u origin master
