@@ -6,8 +6,10 @@ teste.login.br.2020@gmail.com
 
 cd /E/LeandroPires/Alura/JavaEE/livraria-orig
 
+cd /e/LeandroPires/Alura/JavaEE/livraria-maven
+
 git init
 git add .
 git commit -m "comentario"
-git remote add origin https://github.com/leandrospires/livraria-orig.git
+git remote add origin https://github.com/leandrospires/livraria-maven.git
 git push -u origin master
