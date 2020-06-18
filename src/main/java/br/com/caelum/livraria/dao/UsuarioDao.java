@@ -2,6 +2,7 @@ package br.com.caelum.livraria.dao;
 
 import java.io.Serializable;
 
+import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -18,11 +19,18 @@ public class UsuarioDao implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Inject
-	private EntityManager manager; //new EntityManager
+	private EntityManager em;
+	
+	private DAO<Usuario> dao;
+	
+	@PostConstruct
+	void init() {
+		this.dao = new DAO<Usuario>(this.em, Usuario.class);
+	}
 	
 	public boolean existe(Usuario usuario) {
 		
-		TypedQuery<Usuario> query = manager.createQuery(
+		TypedQuery<Usuario> query = em.createQuery(
 				"select u from Usuario u"
 		   	  + " where u.email = :pEmail and u.senha = :pSenha", Usuario.class);
 				
@@ -35,6 +43,10 @@ public class UsuarioDao implements Serializable{
 		}
 		
 		return true;
+	}
+	
+	public void adiciona(Usuario usuario) {
+		this.dao.adiciona(usuario);
 	}
 
 }

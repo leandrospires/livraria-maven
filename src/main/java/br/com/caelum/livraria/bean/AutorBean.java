@@ -13,16 +13,17 @@ import br.com.caelum.livraria.tx.Transacional;
 import br.com.caelum.livraria.util.RedirectView;
 
 @Named
-@ViewScoped //javax.faces.view.ViewScoped
+@ViewScoped
 public class AutorBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private Autor autor = new Autor();
+	
 	private Integer autorId;
 	private Integer qtdAutores;
 
-	//Injeção de dependências
+	//Injeção de dependências//
 	@Inject
 	private AutorDao autorDao; //CDI faz new AutorDao() e injeta
 	
@@ -46,12 +47,13 @@ public class AutorBean implements Serializable {
 		System.out.println("Chamado o form Livro!");
 		return "livro?faces-redirect=true";
 	}
+	
 	public List<Autor> getAutores() {
 		
 		List<Autor> listaAutores = this.autorDao.listaTodos();
 		
 		qtdAutores = listaAutores.size();
-		return listaAutores;//new DAO<Autor>(Autor.class).listaTodos();
+		return listaAutores;
 
 	}
 	

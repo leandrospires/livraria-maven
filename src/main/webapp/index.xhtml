@@ -34,6 +34,8 @@
                     <p:messages for="senha" id="messagePassword"/>
 
                     <p:commandButton value="Login" action="#{loginBean.efetuarLogin}" update="@form" process="@form"/>
+                    <p:commandButton value="Novo" action="usuario?faces-redirect=true" update="@form" process="@form"/>
+                    
                 </p:panelGrid>
             </p:fieldset>
         </h:form>
